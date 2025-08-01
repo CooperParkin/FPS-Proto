@@ -13,6 +13,8 @@ public class PlayerMotor : MonoBehaviour
     // Start is called before the first frame update
     public Transform phone;
 
+    public GameObject blur;
+
     bool shooting = false;
 
     void Start()
@@ -51,8 +53,15 @@ public class PlayerMotor : MonoBehaviour
     {
         shooting = !shooting;
         if (shooting)
+        {
             phone.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            blur.SetActive(false);
+        }
         else
+        {
             phone.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            blur.SetActive(true);
+        }
+
     }
 }
